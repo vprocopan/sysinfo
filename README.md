@@ -138,4 +138,5 @@ python sysinfo.py --env
 
 ---
 
-Would you like me to generate a **`setup.py` + `pyproject.toml`** so you can install this tool globally as a CLI command (e.g., `sysinfo` or `devops-info` from any terminal)?
+## 🪪 License
+This project is licensed under the [MIT License](./LICENSE).
