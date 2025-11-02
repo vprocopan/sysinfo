@@ -1,140 +1,88 @@
-Absolutely 💪 — here’s a clean, professional README.md tailored for your sysinfo.py script — ready to drop into your project.
-It’s formatted for GitHub or any Markdown viewer.
+```markdown
+# PythonProject — Module Overview
 
-⸻
+This repository contains several standalone Python utilities and modules covering shell automation, configuration processing, networking, CLI tooling, system inspection, and concurrency.
 
+Environment
+- Python: 3.14.0
+- Package manager: virtualenv
+- Installed packages: paramiko, pyyaml, requests
 
-# 🧠 SysInfo — Mini DevOps System Information Utility
+Files
+- day3_shell.py
+  - Purpose: Shell task automation and command execution helpers.
+  - Typical features: Running local shell commands, capturing output/return codes, basic error handling, possibly simple file operations.
+  - Possible usage: python day3_shell.py [args]
 
-A lightweight **Python DevOps diagnostic tool** that collects basic system information, environment variables, and disk usage stats.  
-Perfect for quick health checks on local or remote machines.
+- day4_config_files.py
+  - Purpose: Work with configuration files.
+  - Typical features: Read/write YAML (via PyYAML) and/or JSON, validate keys, merge configs, environment variable interpolation.
+  - Possible usage: python day4_config_files.py --input config.json --output merged.yaml
 
----
+- day5_networking.py
+  - Purpose: Networking utilities.
+  - Typical features: HTTP requests (via requests), simple API calls, URL health checks, timeouts/retries, parsing responses.
+  - Possible usage: python day5_networking.py --url https://example.com --timeout 5
 
-## 🚀 Features
+- day7_devops_cli.py
+  - Purpose: DevOps-oriented CLI tool.
+  - Typical features: Subcommands for common DevOps tasks (e.g., info, fetch, validate), logging, structured output.
+  - Possible usage: python day7_devops_cli.py <subcommand> [options]
 
-- Prints host, OS, user, and Python version information  
-- Displays disk usage for any path  
-- Optionally lists environment variables  
-- Supports command-line arguments  
-- Works on **Linux**, **macOS**, and **Windows**  
-- Ideal for use in **DevOps scripts**, **Jenkins stages**, or **remote diagnostics**
+- stage2_system.py
+  - Purpose: System information and management.
+  - Typical features: Collect OS/platform details, CPU/memory/disk stats, environment variables, process info, with optional logging.
+  - Possible usage: python stage2_system.py --summary
 
----
+- stage6_concurrency.py
+  - Purpose: Concurrency patterns and parallel execution.
+  - Typical features: Threading or multiprocessing pools, concurrent task runners, timing and aggregation of results.
+  - Possible usage: python stage6_concurrency.py --workers 4
 
-## 🧩 Example Output
+- sysinfo.py
+  - Purpose: Quick system info script.
+  - Typical features: Print concise system/environment details for diagnostics.
+  - Possible usage: python sysinfo.py
 
-```bash
-🚀 Hello, DevOps World!
+- setup.py
+  - Purpose: Packaging metadata and setup hooks.
+  - Typical features: Package name/version, dependencies, entry points; used with virtualenv workflows.
 
-💻 Hostname: devops-node01
-🧠 OS: Linux 6.8.0-40-generic (x86_64)
-📂 Current working directory: /home/vitalie/devops
-👤 Current user: vitalie
-🐍 Python version: 3.12.4
+Supporting Files
+- config.json: Default configuration values for scripts.
+- values.yaml: YAML configuration, often used with day4_config_files.py.
+- urls.txt: Input list of URLs, likely consumed by networking scripts.
+- devops.log / devops_info.log: Runtime logs.
+- LICENSE: Project license.
+- README.md: Main repository readme.
 
-💾 Disk usage for /:
-  Total: 475 GiB
-  Used: 120 GiB
-  Free: 355 GiB
+Getting Started
+1) Create and activate a virtual environment
+   - python -m venv .venv
+   - On Unix/macOS: source .venv/bin/activate
+   - On Windows: .venv\Scripts\activate
 
-🌍 Environment Variables:
-  SHELL=/bin/bash
-  USER=vitalie
-  PATH=/usr/local/bin:/usr/bin:/bin
-  HOME=/home/vitalie
-  LANG=en_US.UTF-8
-  ...
+2) Install dependencies
+   - pip install -r requirements.txt
+   - Or ensure the following are present: paramiko, pyyaml, requests
 
+3) Run a script
+   - python day3_shell.py --help
+   - python day4_config_files.py --help
+   - python day5_networking.py --help
+   - python day7_devops_cli.py --help
+   - python stage2_system.py --help
+   - python stage6_concurrency.py --help
+   - python sysinfo.py
 
-⸻
+Notes
+- Provide necessary configuration via config.json and/or values.yaml.
+- Some scripts may require network access or system permissions.
+- Logs are written to devops.log or devops_info.log where applicable.
 
-⚙️ Installation
-
-Clone the repository and ensure you have Python 3.8+:
-
-git clone https://github.com/<yourusername>/sysinfo.git
-cd sysinfo
-python3 -m venv .venv
-source .venv/bin/activate  # On macOS/Linux
-pip install -r requirements.txt  # (optional if you add dependencies later)
-
-
-⸻
-
-🧾 Usage
-
-Run the script directly:
-
-python sysinfo.py
-
-🔧 Options
-
-Flag	Description	Example
---path	Specify path to check disk usage	--path /var
---env	Show environment variables	--env
---limit	Limit number of environment variables printed	--env --limit 10
-
-Example Commands
-
-python sysinfo.py
-python sysinfo.py --path /var
-python sysinfo.py --env
-python sysinfo.py --env --limit 15
-
-
-⸻
-
-🧰 Integration Ideas
-
-Use Case	Description
-🔍 Pre-deploy checks	Add system info to Jenkins or ArgoCD pipelines
-📦 Remote diagnostics	Run via SSH or Paramiko across multiple servers
-🧾 Monitoring setup	Feed output into Prometheus or Datadog scripts
-🧪 CI logs	Print system info before running tests
-
-
-⸻
-
-🧑‍💻 Code Overview
-
-Main components:
-	•	show_disk_usage() → Checks disk space usage
-	•	show_env_vars() → Prints environment variables
-	•	main() → Entry point that parses CLI arguments
-
-All functions are lightweight and cross-platform.
-
-⸻
-
-🧱 Roadmap
-	•	Add JSON output mode (--json)
-	•	Add system metrics (CPU, RAM)
-	•	Add remote mode (via Paramiko)
-	•	Add Prometheus /metrics exporter
-
-⸻
-
-🪪 License
-
-MIT License — free to use and modify.
-Created by Vitalie Procopan￼ 🧩
-
-⸻
-
-💬 Contributing
-
-Pull requests are welcome!
-If you’d like to extend this tool (e.g., remote SSH, Kubernetes info), fork it and submit a PR.
-
-⸻
-
-🐍 Quick Run (no clone)
-
-To test directly:
-
-curl -O https://raw.githubusercontent.com/vprocopan/sysinfo/master/sysinfo.py
-python sysinfo.py --env
+Contributing
+- Use a feature branch, add tests where relevant, and follow existing logging and CLI patterns.
+```
 
 ---
 
