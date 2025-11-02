@@ -133,7 +133,7 @@ If you’d like to extend this tool (e.g., remote SSH, Kubernetes info), fork it
 
 To test directly:
 
-curl -O https://raw.githubusercontent.com/<yourusername>/sysinfo/main/sysinfo.py
+curl -O https://raw.githubusercontent.com/vprocopan/sysinfo/master/sysinfo.py
 python sysinfo.py --env
 
 ---
